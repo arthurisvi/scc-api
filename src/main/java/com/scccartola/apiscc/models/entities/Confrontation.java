@@ -11,5 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Confrontation {
     private Long id;
-    private List<LineupPoints> lineups;
+    private List<Lineup> lineups;
 }

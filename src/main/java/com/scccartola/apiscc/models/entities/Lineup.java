@@ -9,4 +9,5 @@ public class Lineup {
     private Long id;
     private List<SoccerPlayerPoints> soccerPlayers;
     private Integer round;
+    private Double points;
 }

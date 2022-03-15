@@ -1,12 +1,11 @@
 package com.scccartola.apiscc.models.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-@AllArgsConstructor
-public class SoccerPlayerPoints extends Points{
+@Data
+public class SoccerPlayerPoints{
+    private Long id;
+    private Integer round;
+    private Double value;
     private SoccerPlayer soccerPlayer;
 }
