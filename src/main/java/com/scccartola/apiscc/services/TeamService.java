@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeamService implements TeamInterfaceService{
  
-    TeamRepository teamRepository;
+    private TeamRepository teamRepository;
 
     public TeamService(TeamRepository teamRepository){
         this.teamRepository = teamRepository;
