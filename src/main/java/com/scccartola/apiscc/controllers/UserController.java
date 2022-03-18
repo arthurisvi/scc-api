@@ -7,6 +7,7 @@ import com.scccartola.apiscc.models.entities.User;
 import com.scccartola.apiscc.services.UserService;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,9 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     
     private UserService userService;
+    private PasswordEncoder encoder;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PasswordEncoder encoder) {
         this.userService = userService;
+        this.encoder = encoder;
     }
 
     @GetMapping
@@ -39,6 +42,7 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody PlayerUser newUser){
+        newUser.setPassword(encoder.encode(newUser.getPassword()));
         return ResponseEntity.ok(userService.createUser(newUser));
     }
 
