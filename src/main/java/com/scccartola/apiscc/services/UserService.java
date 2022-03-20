@@ -1,6 +1,7 @@
 package com.scccartola.apiscc.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.scccartola.apiscc.models.entities.PlayerUser;
 import com.scccartola.apiscc.repositories.UserRepository;
@@ -44,6 +45,12 @@ public class UserService implements UserInterfaceService{
         PlayerUser user = (PlayerUser) findUserById(id);
 
         userRepository.delete(user);
+    }
+
+    public Optional<PlayerUser> findUserByEmail(String email){
+        Optional<PlayerUser> user = userRepository.findUserByEmail(email);
+
+        return user;
     }
 }
 
